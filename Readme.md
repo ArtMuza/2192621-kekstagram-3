@@ -3,7 +3,7 @@
 * Студент: [Артур Музафаров](https://up.htmlacademy.ru/javascript-individual/3/user/2192621).
 * Наставник: [Евгения Подопригора](https://htmlacademy.ru/profile/id2387199).
 
----
+----
 
 _Не удаляйте и не изменяйте самовольно файлы и папки:_
 _`.editorconfig`, `.eslintrc`, `.gitattributes`, `.gitignore`, `package-lock.json`, `package.json`., `.github`_
