@@ -1,3 +1,5 @@
+const MINUTE_PER_HOUR = 60;
+
 const checkStringLength = (string, maxLength) => string.length <= maxLength;
 
 checkStringLength();
@@ -30,3 +32,24 @@ const extractNumber = (value) => {
 };
 
 extractNumber();
+
+const getTimeToMinute = (timeString) => {
+  const strings = timeString.split(':');
+  const numbers = strings.map((string) => Number(string));
+  const totalMinutes = numbers[0] * MINUTE_PER_HOUR + numbers[1];
+
+  return totalMinutes;
+};
+
+const checkMeetingTiming = (startWork, endWork, startMeeting, duration) => {
+  const startWorkInMinutes = getTimeToMinute(startWork);
+  const endWorkInMinutes = getTimeToMinute(endWork);
+  const startMeetingInMinutes = getTimeToMinute(startMeeting);
+
+  const endMeetingInMinutes = startMeetingInMinutes + duration;
+
+  return startMeetingInMinutes >= startWorkInMinutes && endMeetingInMinutes <= endWorkInMinutes;
+};
+
+checkMeetingTiming();
+
