@@ -1,4 +1,5 @@
 import { createBigPictureRenderer } from './big-picture-render.js';
+import { isEscapeKey } from './util.js';
 
 const bigPicture = document.querySelector('.big-picture');
 const buttonClose = bigPicture.querySelector('#picture-cancel');
@@ -20,7 +21,7 @@ function closeBigPicture() {
 }
 
 function onDocumentKeydown(evt) {
-  if (evt.key === 'Escape') {
+  if (isEscapeKey(evt)) {
     evt.preventDefault();
     closeBigPicture();
   }
