@@ -56,7 +56,7 @@ noUiSlider.create(effectLevelSlider, {
   step: 0.1,
   connect: 'lower',
   format: {
-    to: (value) => chosenEffect.step === 1 ? Math.round(value) : value.toFixed(1),
+    to: (value) => Number.isInteger(value) ? value.toFixed(0) : value.toFixed(1),
     from: (value) => parseFloat(value)
   }
 });
@@ -66,6 +66,8 @@ const applyDefaultEffect = () => {
   effectLevelValue.value = '';
   effectLevelContainer.classList.add('hidden');
 };
+
+applyDefaultEffect();
 
 effectLevelSlider.noUiSlider.on('update', () => {
   const value = effectLevelSlider.noUiSlider.get();
