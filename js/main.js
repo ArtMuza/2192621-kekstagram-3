@@ -1,7 +1,10 @@
-import { createPhotos } from './photos.js';
+import { getData } from './api.js';
+import { showDataError } from './message.js';
 import { renderThumbnails } from './thumbnails.js';
 import './form.js';
-import './effects.js';
 
-const photos = createPhotos();
-renderThumbnails(photos);
+getData().then((photos) => {
+  renderThumbnails(photos);
+}).catch(() => {
+  showDataError();
+});

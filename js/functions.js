@@ -2,8 +2,6 @@ const MINUTE_PER_HOUR = 60;
 
 const checkStringLength = (string, maxLength) => string.length <= maxLength;
 
-checkStringLength();
-
 const isPalindrome = (string) => {
   const normalized = string.replaceAll(' ', '').toLowerCase();
   let reversed = '';
@@ -14,8 +12,6 @@ const isPalindrome = (string) => {
 
   return normalized === reversed;
 };
-
-isPalindrome();
 
 const extractNumber = (value) => {
   const string = value.toString();
@@ -30,8 +26,6 @@ const extractNumber = (value) => {
   }
   return parseInt(result, 10);
 };
-
-extractNumber();
 
 const getTimeToMinute = (timeString) => {
   const strings = timeString.split(':');
@@ -51,5 +45,4 @@ const checkMeetingTiming = (startWork, endWork, startMeeting, duration) => {
   return startMeetingInMinutes >= startWorkInMinutes && endMeetingInMinutes <= endWorkInMinutes;
 };
 
-checkMeetingTiming();
-
+export { checkStringLength, isPalindrome, extractNumber, checkMeetingTiming };
