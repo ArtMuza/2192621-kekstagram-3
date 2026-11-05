@@ -3,6 +3,7 @@ import { isEscapeKey } from './util.js';
 import { resetScale } from './scale.js';
 import { resetEffects } from './effects.js';
 import { sendData } from './api.js';
+import { resetPreview, setupUploadPreview } from './preview.js';
 
 const MAX_COMMENT_LENGTH = 140;
 const MAX_HASHTAG_COUNT = 5;
@@ -16,7 +17,6 @@ const SubmitButtonText = {
 
 const uploadForm = document.querySelector('.img-upload__form');
 const uploadOverlay = document.querySelector('.img-upload__overlay');
-const uploadInput = document.querySelector('.img-upload__input');
 const uploadCancel = document.querySelector('.img-upload__cancel');
 
 const textHashtags = document.querySelector('.text__hashtags');
@@ -40,11 +40,12 @@ const openUploadForm = () => {
 const closeUploadForm = () => {
   uploadOverlay.classList.add('hidden');
   document.body.classList.remove('modal-open');
+  document.removeEventListener('keydown', onDocumentKeydown);
   uploadForm.reset();
   pristine.reset();
-  document.removeEventListener('keydown', onDocumentKeydown);
   resetScale();
   resetEffects();
+  resetPreview();
 };
 
 function onDocumentKeydown(evt) {
@@ -54,7 +55,7 @@ function onDocumentKeydown(evt) {
   }
 }
 
-uploadInput.addEventListener('change', openUploadForm);
+setupUploadPreview(openUploadForm);
 
 uploadCancel.addEventListener('click', closeUploadForm);
 
