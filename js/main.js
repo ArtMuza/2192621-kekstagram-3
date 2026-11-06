@@ -3,6 +3,7 @@ import { showDataError } from './message.js';
 import { renderThumbnails } from './thumbnails.js';
 import { getFilteredPhotos } from './filter.js';
 import { debounce } from './util.js';
+
 import './form.js';
 
 const RERENDER_DELAY = 500;
